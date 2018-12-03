@@ -1,12 +1,11 @@
 all: compila
-compila: emissor.o receptor.o
+compila: servidor.o cliente.o
 
-emissor.o: emissor.cpp
-	g++ emissor.cpp -o emissor
+servidor.o: servidor.cpp
+	g++ servidor.cpp -o servidor -pthread -g
 
-receptor.o: receptor.cpp
-	g++ receptor.cpp -o receptor
-
-
+cliente.o: cliente.cpp
+	g++ cliente.cpp -o cliente -pthread -g
 clean:
+	rm servidor cliente
 	
